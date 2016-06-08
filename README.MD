@@ -1,0 +1,1 @@
+This is a learning project in Python Flask, using (Behaviour Driven Development) with Behave to recreate an app similar to Migual Grinberg tutorial microblogging platform.
