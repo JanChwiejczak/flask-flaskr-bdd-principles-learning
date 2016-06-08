@@ -1,0 +1,25 @@
+# environment
+env/
+venv/
+.idea/
+.cache/
+
+#python specific
+*.pyc
+__pycache__
+
+## generic files to ignore
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
+error.log
+
+#Test db & coverage
+test.db
+.coverage
+htmlcov/
+
+#Local runner
+run_local.py
