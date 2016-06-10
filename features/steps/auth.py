@@ -28,7 +28,7 @@ def message(context, message):
 
 @when(u'we add a new entry with "{title}" and "{text}" as the title and text')
 def successful_post(context, title, text):
-    context.page = context.client.post('/index', data=dict(title=title, text=text), follow_redirects=True)
+    context.page = context.client.post('/add', data=dict(title=title, text=text), follow_redirects=True)
     assert context.page
 
 
@@ -39,5 +39,5 @@ def not_logged_in(context):
 
 @then('we should see a "{status}" status code')
 def step_impl(context, status):
-    context.page = context.client.post('/index', data=dict(title='title', text='text'), follow_redirects=True)
-    assert context.page.status_code == status
+    context.page = context.client.post('/add', data=dict(title='title', text='text'), follow_redirects=True)
+    assert context.page._status_code == int(status)
