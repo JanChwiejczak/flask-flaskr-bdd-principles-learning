@@ -41,3 +41,11 @@ def not_logged_in(context):
 def step_impl(context, status):
     context.page = context.client.post('/add', data=dict(title='title', text='text'), follow_redirects=True)
     assert context.page._status_code == int(status)
+
+
+@step('we should see the post with "{title}" and "{text}" in title and text')
+def step_impl(context, title, text):
+    title = bytes(title, 'utf-8')
+    text = bytes(text, 'utf-8')
+    context.page = context.client.get('/index', follow_redirects=True)
+    assert title and text in context.page.data

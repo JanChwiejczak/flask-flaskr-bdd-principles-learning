@@ -32,3 +32,10 @@ Feature: Flask is secure in that users must log in and log out to access certain
     And we are not logged in
     When we add a new entry with "test" and "test" as the title and text
     Then we should see a "401" status code
+
+  Scenario: Show entries
+    Given we have flask running
+    And we log in with "admin" and "admin"
+    When we add a new entry with "test" and "test21" as the title and text
+    Then we should see the alert "New entry was successfully posted"
+    And we should see the post with "test" and "test21" in title and text
