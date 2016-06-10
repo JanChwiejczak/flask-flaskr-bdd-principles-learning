@@ -1,5 +1,11 @@
 from flask import Flask, request, flash, render_template, session, redirect, url_for
 
+# Configuration
+DATABASE = ''
+USERNAME = 'admin'
+PASSWORD = 'admin'
+SECRET_KEY = 'change_me'
+
 app = Flask(__name__)
 
 
