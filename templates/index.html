@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+
+    {% if not session.logged_in %}
+      <a href="{{ url_for('login') }}">login</a>
+    {% else %}
+      <a href="{{ url_for('logout') }}">log out</a>
+    {% endif %}
+    {% if session.logged_in %}
+      <h1>Hi!</h1>
+    {% endif %}
+{% endblock %}
