@@ -7,6 +7,7 @@ import sqlite3
 app = Flask(__name__)
 app.config.update(
     DATABASE='flaskr.db',
+    DATABASE_PATH='./flaskr.db',
     USERNAME='admin',
     PASSWORD='admin',
     SECRET_KEY='change_me'
