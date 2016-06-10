@@ -1,4 +1,4 @@
-from flask import Flask, request, flash, render_template, session, redirect, url_for
+from flask import Flask, request, flash, render_template, session, redirect, url_for, abort
 
 # Configuration
 
@@ -41,6 +41,16 @@ def logout():
 @app.route('/index')
 def index():
     return render_template('index.html')
+
+
+@app.route('/add', methods=['POST'])
+def add():
+    if session.get('logged_in'):
+        flash('New entry was successfully posted')
+    else:
+        abort(401)
+    return redirect(url_for('index'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
