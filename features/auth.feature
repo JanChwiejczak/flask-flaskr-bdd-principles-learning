@@ -20,3 +20,15 @@ Feature: Flask is secure in that users must log in and log out to access certain
     And we log in with "admin" and "admin"
     When we logout
     Then we should see the alert "You were logged out"
+
+  Scenario: Successful post
+    Given we have flask running
+    And we log in with "admin" and "admin"
+    When we add a new entry with "test" and "test" as the title and text
+    Then we should see the alert "New entry was successfully posted"
+
+  Scenario: Unsuccessful post
+    Given we have flask running
+    And we are not logged in
+    When we add a new entry with "test" and "test" as the title and text
+    Then we should see a "405" status code
