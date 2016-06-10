@@ -7,6 +7,14 @@
       <a href="{{ url_for('logout') }}">log out</a>
     {% endif %}
     {% if session.logged_in %}
-      <h1>Hi!</h1>
+        <h1>Hi!</h1>
+        <h3>add a new post</h3>
+        <form action="{{ url_for('add') }}" method="POST">
+            <div class="form-group">
+                Title: <input class="form-control" type="text" name="title">
+                Text: <input class="form-control" type="text" name="text">
+                <button class="btn btn-success" type="submit">Post!</button>
+            </div>
+        </form>
     {% endif %}
 {% endblock %}
