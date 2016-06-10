@@ -13,5 +13,6 @@ except ImportError:
     sys.path.append(full_path)
     from flaskr import app
 
+
 def before_feature(context, feature):
-    context_client = app.test_client()
+    context.client = app.test_client()
