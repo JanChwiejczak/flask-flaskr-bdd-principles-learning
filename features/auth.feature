@@ -4,7 +4,6 @@ Feature: Flask is secure in that users must log in and log out to access certain
     Given we have flask running
     When we log in with "admin" and "admin"
     Then we should see the alert "You were logged in"
-    And see the main mirco blog page
 
   Scenario: Incorrect username
     Given we have flask running
@@ -21,4 +20,3 @@ Feature: Flask is secure in that users must log in and log out to access certain
     And we log in with "admin" and "admin"
     When we logout
     Then we should see the alert "You were logged out"
-    And see the login page
