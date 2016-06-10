@@ -17,7 +17,7 @@ def login(context, username, password):
 
 @when(u'we logout')
 def logout(context):
-    context.page = context.client.post('/logout', follow_redirects=True)
+    context.page = context.client.get('/logout', follow_redirects=True)
     assert context.page
 
 

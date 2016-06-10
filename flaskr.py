@@ -1,15 +1,17 @@
 from flask import Flask, request, flash, render_template, session, redirect, url_for
 
 # Configuration
-DATABASE = ''
-USERNAME = 'admin'
-PASSWORD = 'admin'
-SECRET_KEY = 'change_me'
+
 
 app = Flask(__name__)
+app.config.update(
+    DATABASE='',
+    USERNAME='admin',
+    PASSWORD='admin',
+    SECRET_KEY='change_me'
+    )
 
-
-@app.route('/Hello')
+@app.route('/hello')
 def hello():
     return 'Hello World!'
 
@@ -26,7 +28,7 @@ def login():
             session['logged_in'] = True
             flash('You were logged in')
             return redirect(url_for('index'))
-        return render_template('login.html', error=error)
+    return render_template('login.html', error=error)
 
 
 @app.route('/logout')
@@ -38,7 +40,7 @@ def logout():
 
 @app.route('/index')
 def index():
-    pass
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

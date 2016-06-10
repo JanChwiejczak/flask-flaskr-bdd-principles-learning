@@ -11,6 +11,10 @@
 </head>
 <body>
 <div class="container">
+  <h1>Flask - BDD tutorial</h1>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
   {% block content %}
   {% endblock %}
 </div>
