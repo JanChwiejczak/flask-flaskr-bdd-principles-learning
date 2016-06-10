@@ -8,6 +8,24 @@
     {% endif %}
     {% if session.logged_in %}
         <h1>Hi!</h1>
+        <div class="posts panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Posts</h3>
+        </div>
+        <table class = "table table-striped">
+          <thead></thead>
+          <tr>
+            <th><strong>Title</strong></th>
+            <th ><strong>Text</strong></th>
+          </tr>
+          {% for entry in entries %}
+            <tr>
+              <td >{{ entry.title }}</td>
+              <td >{{ entry.text|safe }}</td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
         <h3>add a new post</h3>
         <form action="{{ url_for('add') }}" method="POST">
             <div class="form-group">

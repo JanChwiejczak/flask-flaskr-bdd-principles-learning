@@ -1,13 +1,16 @@
 from flask import Flask, request, flash, render_template, session, redirect, url_for, abort, g
 import sqlite3
+import os
 
 # Configuration
 
+# define the full path for database
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
 app.config.update(
     DATABASE='flaskr.db',
-    DATABASE_PATH='./flaskr.db',
+    DATABASE_PATH=os.path.join(basedir, 'flaskr.db'),
     USERNAME='admin',
     PASSWORD='admin',
     SECRET_KEY='change_me'
