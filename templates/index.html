@@ -24,6 +24,11 @@
               <td >{{ entry.text|safe }}</td>
             </tr>
           {% endfor %}
+          {% if not entries %}
+            <tr>
+              <td >No entries yet. Add some!</td>
+            </tr>
+          {% endif %}
         </table>
       </div>
         <h3>add a new post</h3>

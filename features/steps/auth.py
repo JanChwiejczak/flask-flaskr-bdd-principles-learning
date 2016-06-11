@@ -49,3 +49,12 @@ def step_impl(context, title, text):
     text = bytes(text, 'utf-8')
     context.page = context.client.get('/index', follow_redirects=True)
     assert title and text in context.page.data
+
+
+@step("there are no entries")
+def table_entries_empty(context):
+    pass
+    # db = context.db
+    # cur = db.execute('SELECT title, text FROM entries ORDER BY id DESC ')
+    # entries = cur.fetchall()
+    # assert not entries

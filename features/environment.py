@@ -1,6 +1,7 @@
 import os
 import sys
 import tempfile
+import sqlite3
 
 # add module to syspath
 pwd = os.path.abspath(os.path.dirname(__file__))
@@ -21,3 +22,6 @@ def before_feature(context, feature):
     context.client = app.test_client()
     init_db()
 
+def after_feature(context, feature):
+    os.close(context.db)
+    os.unlink(app.config['DATABASE'])

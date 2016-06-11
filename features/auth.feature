@@ -20,6 +20,12 @@ Feature: Flask is secure in that users must log in and log out to access certain
     And we log in with "admin" and "admin"
     When we logout
     Then we should see the alert "You were logged out"
+    
+  Scenario: If no entries show add some message
+    Given we have flask running
+    And there are no entries
+    And we log in with "admin" and "admin"
+    Then we should see the alert "No entries yet. Add some!"
 
   Scenario: Successful post
     Given we have flask running
@@ -37,5 +43,7 @@ Feature: Flask is secure in that users must log in and log out to access certain
     Given we have flask running
     And we log in with "admin" and "admin"
     When we add a new entry with "test" and "test21" as the title and text
+    And we add a new entry with "newest" and "test31" as the title and text
     Then we should see the alert "New entry was successfully posted"
+    And we should see the post with "newest" and "test31" in title and text
     And we should see the post with "test" and "test21" in title and text
